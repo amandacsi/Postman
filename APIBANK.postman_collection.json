@@ -1,12 +1,108 @@
 {
 	"info": {
-		"_postman_id": "af483129-c785-47b5-ac4c-4b8d335dc1b5",
-		"name": "ApiBanco",
-		"description": "Coleção para consulta de dados de bancos",
+		"_postman_id": "68f03897-b67c-445c-a92a-53b3ad079617",
+		"name": "APIBANK",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10477344"
 	},
 	"item": [
+		{
+			"name": "Update",
+			"item": [
+				{
+					"name": "14 Update bank",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Quando verificar os dados corretos \", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"SP\" , \"15,00%\", 1, \"Banco do Brasil\" );\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Retorno da mensagem de sucesso correta\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].mensagem).to.eql(\"Registro alterado com sucesso!\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status de resposta correto 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1, \r\n    \"banco\": \"Banco do Brasil\",\r\n    \"estadoAtuacao\": \"SP\",\r\n    \"juros\": \"15,00%\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bank"
+							]
+						},
+						"description": "Faz alteração em um banco existente pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "15 Update bank erro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status de resposta correto 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"banco\": \"Banco teste\",\r\n    \"estadoAtuacao\": \"PE\",\r\n    \"juros\": \"1,00%\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bank",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bank"
+							]
+						},
+						"description": "Erro de alteração de banco pois o ID não existe"
+					},
+					"response": []
+				}
+			],
+			"description": "Update de banco existente"
+		},
 		{
 			"name": "List",
 			"item": [
@@ -589,103 +685,6 @@
 			"description": "Nesta collection contém todas as listas de acesso do banco."
 		},
 		{
-			"name": "Update",
-			"item": [
-				{
-					"name": "14 Update bank",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Quando verificar os dados corretos \", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"SP\" , \"15,00%\", 1, \"Banco do Brasil\" );\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Retorno da mensagem de sucesso correta\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData[0].mensagem).to.eql(\"Registro alterado com sucesso!\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status de resposta correto 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1, \r\n    \"banco\": \"Banco do Brasil\",\r\n    \"estadoAtuacao\": \"SP\",\r\n    \"juros\": \"15,00%\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/bank",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"bank"
-							]
-						},
-						"description": "Faz alteração em um banco existente pelo ID."
-					},
-					"response": []
-				},
-				{
-					"name": "15 Update bank erro",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status de resposta correto 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"banco\": \"Banco teste\",\r\n    \"estadoAtuacao\": \"PE\",\r\n    \"juros\": \"1,00%\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/bank",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"bank"
-							]
-						},
-						"description": "Erro de alteração de banco pois o ID não existe"
-					},
-					"response": []
-				}
-			],
-			"description": "Update de banco existente"
-		},
-		{
 			"name": "Create",
 			"item": [
 				{
@@ -824,6 +823,15 @@
 		}
 	],
 	"variable": [
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "Token",
+			"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJkZXNhZmlvIjoic2VyYXNhIn0.oOMv4kf9hKMtuatZEZJyESVu9Z7h6hGBwrZRJ-9HkCU\""
+		},
 		{
 			"key": "baseUrl",
 			"value": "https://8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8.mock.pstmn.io"
