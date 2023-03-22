@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "68f03897-b67c-445c-a92a-53b3ad079617",
 		"name": "APIBANK",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "10477344"
 	},
 	"item": [
@@ -60,13 +60,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJkZXNhZmlvIjoic2VyYXNhIn0.oOMv4kf9hKMtuatZEZJyESVu9Z7h6hGBwrZRJ-9HkCU",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJkZXNhZmlvIjoic2VyYXNhIn0.oOMv4kf9hKMtuatZEZJyESVu9Z7h6hGBwrZRJ-9HkCU"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -528,19 +524,7 @@
 					"mode": "raw",
 					"raw": "{ \r\n    \"banco\": \"TESTE\",\r\n    \"estadoAtuacao\": \"PE\",\r\n    \"juros\": \"5,00%\"\r\n}"
 				},
-				"url": {
-					"raw": "https://8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8.mock.pstmn.io/bank",
-					"protocol": "https",
-					"host": [
-						"8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8",
-						"mock",
-						"pstmn",
-						"io"
-					],
-					"path": [
-						"bank"
-					]
-				}
+				"url": "https://8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8.mock.pstmn.io/bank"
 			},
 			"response": []
 		},
@@ -588,13 +572,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "7dcec2d2-2c39-49dd-8fae-2ab14e673a81",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "7dcec2d2-2c39-49dd-8fae-2ab14e673a81"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -607,32 +587,16 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "https://8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8.mock.pstmn.io/bank",
-					"protocol": "https",
-					"host": [
-						"8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8",
-						"mock",
-						"pstmn",
-						"io"
-					],
-					"path": [
-						"bank"
-					]
-				}
+				"url": "https://8dac9f4e-fcb2-4e8f-857a-e4ed3497a0d8.mock.pstmn.io/bank"
 			},
 			"response": []
 		}
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJkZXNhZmlvIjoic2VyYXNhIn0.oOMv4kf9hKMtuatZEZJyESVu9Z7h6hGBwrZRJ-9HkCU\"",
-				"type": "string"
-			}
-		]
+		"bearer": {
+			"token": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJkZXNhZmlvIjoic2VyYXNhIn0.oOMv4kf9hKMtuatZEZJyESVu9Z7h6hGBwrZRJ-9HkCU\""
+		}
 	},
 	"event": [
 		{
